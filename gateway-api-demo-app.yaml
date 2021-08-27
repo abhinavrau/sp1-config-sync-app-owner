@@ -15,9 +15,25 @@ spec:
         app: k8s-gateway-api-demo
     spec:
       containers:
-      - image: msathetech/k8s-gateway-demo@sha256:fdee187f87a78fdd98cd8365d09a5d06fae9cd6f1e13f66f50b2b11bcf4a69b4
+      - image: msathetech/k8s-gateway-demo@sha256:5c3326737cf50928ead9bcde77f3e73f0baee40dc7aa54737b1606b5ef3c156f
         imagePullPolicy: Always
         name: k8s-gateway-api-demo
+        resources:
+          limits:
+            cpu: "1"
+            memory: 256Mi
+          requests:
+            cpu: "0.5"
+        env:
+          - name: POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+          
 ---
 apiVersion: v1
 kind: Service
