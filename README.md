@@ -1,1 +1,1 @@
-Update foo-app to version: 88c8655
+Update foo-app to version: 29a0acf
