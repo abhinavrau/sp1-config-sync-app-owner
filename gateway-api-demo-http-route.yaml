@@ -17,22 +17,4 @@ spec:
     forwardTo:
     - serviceName: k8s-gateway-api-demo-service
       port: 8080
-      weight: 50
-    - serviceName: k8s-gateway-api-demo-service-v2
-      port: 8080
-      weight: 50
-  # - matches:
-  #   - headers:
-  #       type: Exact
-  #       values:
-  #         env: canary
-  #   forwardTo:
-  #   - serviceName: store-v2
-  #     port: 8080
-  # - matches:
-  #   - path:
-  #       type: Prefix
-  #       value: /de
-  #   forwardTo:
-  #   - serviceName: store-german
-  #     port: 8080
+      weight: 100
