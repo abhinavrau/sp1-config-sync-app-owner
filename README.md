@@ -1,1 +1,1 @@
-Update foo-app to version: d5faf20
+Update foo-app to version: e6b424e
