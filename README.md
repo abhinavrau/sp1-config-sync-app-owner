@@ -1,1 +1,1 @@
-# sp1-config-sync-app-owner
+Update foo-app to version: 88c8655
