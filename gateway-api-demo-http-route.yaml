@@ -11,8 +11,10 @@ spec:
   - forwardTo:
     - port: 8080
       serviceName: k8s-gateway-api-demo-service-10c20cd
-      weight: 100
-    - {}
+      weight: 50
+    - port: 8080
+      serviceName: k8s-gateway-api-demo-service-11b2310
+      weight: 50
     matches:
     - path:
         type: Prefix
