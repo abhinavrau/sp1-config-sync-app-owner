@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-gateway-api-demo-service-aec7571
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: k8s-gateway-api-demo-aec7571
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: k8s-gateway-api-demo-aec7571
+  name: k8s-gateway-api-demo-aec7571
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-gateway-api-demo-aec7571
+  template:
+    metadata:
+      labels:
+        app: k8s-gateway-api-demo-aec7571
+    spec:
+      containers:
+      - env:
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        image: msathetech/k8s-gateway-demo:aec7571
+        imagePullPolicy: Always
+        name: k8s-gateway-api-demo
+        resources:
+          limits:
+            cpu: "1"
+            memory: 256Mi
+          requests:
+            cpu: "0.5"
