@@ -1,19 +1,18 @@
 kind: HTTPRoute
 apiVersion: gateway.networking.k8s.io/v1alpha2
 metadata:
-  labels:
-    gateway: external-http
   name: k8s-gateway-api-demo
 spec:
-  gateways:
-    allow: All
+  parentRefs:
+  - name: gateway
+    namespace: istio-system
+  hostnames: ["foo.example.com"]
   rules:
-  - forwardTo:
-    - port: 8080
-      serviceName: k8s-gateway-api-demo-service-ff3b85e
-      weight: 100
-    - {}
-    matches:
+  - matches:
     - path:
         type: Prefix
         value: /
+    backendRefs:
+      - name: k8s-gateway-api-demo-service-ff3b85e
+        port: 8080
+        weight: 100
