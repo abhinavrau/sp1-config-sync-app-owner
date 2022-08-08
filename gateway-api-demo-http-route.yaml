@@ -10,7 +10,10 @@ spec:
   - backendRefs:
     - name: k8s-gateway-api-demo-service-fdab0cf
       port: 8080
-      weight: 100
+      weight: 50
+    - name: k8s-gateway-api-demo-service-9ed267d
+      port: 8080
+      weight: 50
     matches:
     - path:
         type: PathPrefix
