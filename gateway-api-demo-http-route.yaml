@@ -6,7 +6,7 @@ spec:
   parentRefs:
   - name: gateway
     namespace: istio-system
-  hostnames: ["foo.example.com"]
+  #hostnames: ["foo.example.com"]
   rules:
   - matches:
     - path:
