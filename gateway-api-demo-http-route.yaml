@@ -10,7 +10,7 @@ spec:
   rules:
   - matches:
     - path:
-        type: Prefix
+        type: PathPrefix
         value: /
     backendRefs:
       - name: k8s-gateway-api-demo-service-ff3b85e
