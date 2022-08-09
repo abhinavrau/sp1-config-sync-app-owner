@@ -8,7 +8,7 @@ spec:
     namespace: istio-system
   rules:
   - backendRefs:
-    - name: k8s-gateway-api-demo-service-2d3439e
+    - name: k8s-gateway-api-demo-service-
       port: 8080
       weight: 100
     matches:
